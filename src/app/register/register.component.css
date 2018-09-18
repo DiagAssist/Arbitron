@@ -1,0 +1,123 @@
+a{
+   color: #00838f;
+}
+a:hover{
+  color:#00bcd4 ;
+}
+
+.text-danger-for-firstname{
+              display: block;
+              color:#e53935;
+              font-size:0.8em;
+              transform: translate(55px,-15px);
+              margin:0px;
+              padding:0px;
+              height:0px;
+              width: 30px;
+              animation: fadein 2s;
+             -moz-animation: fadein 2s; /* Firefox */
+             -webkit-animation: fadein 2s; /* Safari et Chrome */
+             -o-animation: fadein 2s; /* Opera */
+            }
+.text-danger-for-name{
+              display: block;
+              color:#e53935;
+              font-size:0.8em;
+              transform: translate(55px,-35px);
+              margin:0px;
+              padding:0px;
+              height:0px;
+              width: 30px;
+              animation: fadein 2s;
+             -moz-animation: fadein 2s; /* Firefox */
+             -webkit-animation: fadein 2s; /* Safari et Chrome */
+             -o-animation: fadein 2s; /* Opera */
+            }
+.text-danger{
+              display: block;
+              color:#e53935;
+              font-size:0.8em;
+              transform: translate(45px,-35px);
+              margin:0px;
+              padding:0px;
+              height:0px;
+
+              animation: fadein 2s;
+             -moz-animation: fadein 2s; /* Firefox */
+             -webkit-animation: fadein 2s; /* Safari et Chrome */
+             -o-animation: fadein 2s; /* Opera */
+            }
+.text-danger-no{
+                          display: block;
+                          color:#e53935;
+                          font-size:0.8em;
+
+                          margin:0px;
+                          padding:0px;
+                          height:0px;
+
+                          animation: fadein 2s;
+                         -moz-animation: fadein 2s; /* Firefox */
+                         -webkit-animation: fadein 2s; /* Safari et Chrome */
+                         -o-animation: fadein 2s; /* Opera */
+                        }
+/*debut animation*/
+@keyframes fadein {
+    from {
+          opacity:0;
+          }
+    to {
+          opacity:1;
+        }
+      }
+@-moz-keyframes fadein { /* sur Firefox */
+    from {
+            opacity:0;
+          }
+    to {
+           opacity:1;
+        }
+      }
+@-webkit-keyframes fadein { /* sur Safari et Chrome */
+      from {
+              opacity:0;
+        }
+          to {
+              opacity:1;
+            }
+      }
+@-o-keyframes fadein { /* sur Opera */
+      from {
+              opacity:0;
+            }
+      to {
+                opacity: 1;
+                }
+      }
+/*fin anim*/
+
+.has-error input{
+
+              border-bottom: 1px solid #e53935;
+              box-shadow: 0 1px 0 0 #e53935;
+            }
+.has-error label {
+              color:#e57373 ;
+            }
+.has-error .prefix {
+              color:#e57373 ;
+            }
+.nomargin {  margin-top:0px; }
+.yesmargin {  margin-top:40px; }
+
+.input-group {
+    display: table;
+}
+
+.input-group input, .suffix {
+    display: table-cell;
+
+}
+.suffix {
+    width:1%;
+}

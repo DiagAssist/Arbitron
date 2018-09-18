@@ -1,0 +1,45 @@
+ <!-- main app container -->
+  <!-- Dropdown Structure -->
+  <ul id="lang" class="dropdown-content">
+    <li><a href="#!">FR</a></li>
+    <li><a href="#!">EN</a></li>
+      <li class="divider"></li>
+  </ul>
+  <!-- Navbar -->
+  <div class="navbar-fixed">
+      <nav class="  cyan darken-3">
+          <div class="container">
+              <div class="nav-wrapper">
+                  <a href="#" class="brand-logo responsive-img"> <img src="../assets/images/auth/logo-new.png"></a>
+                  <a href="#" data-activates="mobile-demo" materialize="sideNav" [materializeParams]="[{menuWidth: 200,edge: 'left', closeOnClick: true, draggable: true}]" class="button-collapse"><i class="material-icons">menu</i></a>
+                  <ul class="right hide-on-med-and-down" id="navList">
+                      <li><a href="#work">Mentions légales</a></li>
+                      <li><a href="#contact">Contact</a></li>
+                      <li><a href="#contact">EN</a></li>
+                      <!-- Dropdown Trigger
+                       <li>
+                         <a class="dropdown-trigger" href="#!" data-target="lang">
+                          Langue<i class="material-icons right">arrow_drop_down</i>
+                         </a>
+                       </li>
+                       <li>
+                       <a class='dropdown-button btn'
+                        href='javascript:void(0);'
+                        data-activates='lang'
+                         dropdown data-hover="true"> Langue<i class="material-icons right">arrow_drop_down</i></a>
+                      </li> -->
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </div>
+  <!-- Menu mobile et tablette */ -->
+ <ul class="side-nav" id="mobile-demo">
+    <li><a href="#work">Mentions légales</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact">EN</a></li>
+  </ul>
+  
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

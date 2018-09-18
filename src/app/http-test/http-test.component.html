@@ -1,0 +1,14 @@
+<div class="row margin col l6 center">
+<h2>GET</h2>
+Name :<input type="text" (keyup)="onNameKeyUp($event)">
+<button (click)="getProfile()" class='btn-large waves-effect waves-light cyan darken-3 col s12 hoverable'>Get Profile</button>
+<br>
+<div *ngIf="found">
+  <span>{{name}}'s age is {{age}}</span>
+</div>
+
+<br>
+<h2>POST</h2>
+
+<button  (click)="postProfile()" class='btn-large waves-effect waves-light cyan darken-3 col s12 hoverable'>Post Profile</button>
+</div>

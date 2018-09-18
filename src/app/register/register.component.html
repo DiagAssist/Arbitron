@@ -1,0 +1,168 @@
+<section class="section">
+      <div class="valign-wrapper row">
+          <div class="col card hoverable s12  m8 pull-m2 l10 pull-l1">
+            <div class="card-content">
+                  <span class="card-title grey-text text-darken-2 "><h5>Créer un compte</h5></span>
+                    <alert></alert>
+                  <br/>
+
+                        <form novalidate [formGroup]="form" (ngSubmit)="form.valid && register(form)">
+
+                          <div class="row margin">
+                             <div class="input-field col s12 m12 l6" id="firstName" [ngClass]="{ 'has-error': (form.get('firstName').touched && form.get('firstName').invalid) || (submit && form.get('firstName').invalid) }">
+                               <i class="material-icons prefix">person</i>
+                              <input type="text" class="validate" name="firstName" formControlName="firstName"/>
+                              <label for="firstName">Prénom <span class="require">*</span></label>
+                            </div>
+
+                            <div *ngIf="(form.get('firstName').touched && form.get('firstName').invalid) || (submit && form.get('firstName').invalid) " class="text-danger-for-firstname col s12 hide-on-large-only">
+                              <div *ngIf="form.get('firstName').hasError('required')">
+                                   Ce champs est obligatoire!
+                              </div>
+                              <div *ngIf="form.get('firstName').hasError('pattern')">
+                                   Ce format de prénom est invalide!
+                              </div>
+                            </div>
+
+                            <div class="input-field col s12 m12 l6" id="lastName" [ngClass]="{ 'has-error': (form.get('lastName').touched && form.get('lastName').invalid) || (submit && form.get('lastName').invalid) }">
+                              <i class="material-icons prefix">person_outline</i>
+                              <input type="text" class="validate" name="lastName" formControlName="lastName"/>
+                              <label for="lastName">Nom <span class="require">*</span></label>
+                           </div>
+
+                          <div *ngIf="(form.get('lastName').touched && form.get('lastName').invalid) || (submit && form.get('lastName').invalid) " class="text-danger-for-firstname col s12 hide-on-large-only">
+                            <div *ngIf="form.get('lastName').hasError('required')">
+                                 Ce champs est obligatoire!
+                            </div>
+                            <div *ngIf="form.get('lastName').hasError('pattern')">
+                                 Ce format de nom est invalide!
+                            </div>
+                          </div>
+                          </div>
+                          <div class=" hide-on-med-and-down">
+                            <div *ngIf="(form.get('firstName').touched && form.get('firstName').invalid) || (submit && form.get('firstName').invalid) " class="text-danger col l6">
+                              <div *ngIf="form.get('firstName').hasError('required')">
+                                   Ce champs est obligatoire!
+                              </div>
+                              <div *ngIf="form.get('firstName').hasError('pattern')">
+                                   Ce format de prénom est invalide!
+                              </div>
+                            </div>
+                            <div *ngIf="(form.get('lastName').touched && form.get('lastName').invalid) || (submit && form.get('lastName').invalid) " class="text-danger-for-name col l6 offset-l6">
+                              <div *ngIf="form.get('lastName').hasError('required')">
+                                   Ce champs est obligatoire!
+                              </div>
+                              <div *ngIf="form.get('lastName').hasError('pattern')">
+                                   Ce format de nom est invalide!
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row margin nomargin">
+                            <div class="input-field input-group nomargin col s12"  id="username" [ngClass]="{ 'has-error': (form.get('username').touched && form.get('username').invalid) || (submit && form.get('username').invalid) }">
+                                <i class="material-icons prefix">email</i>
+                                <input type="email"  name="username" class="validate" formControlName="username"/>
+                                <label for="username">Identifiant (Email) <span class="require">*</span></label>
+                          </div>
+                        </div>
+                        <div *ngIf="(form.get('username').touched && form.get('username').invalid) || (submit && form.get('username').invalid) " class="text-danger">
+                          <div *ngIf="form.get('username').hasError('required')">
+                               Ce champs est obligatoire!
+                          </div>
+                          <div *ngIf="form.get('username').hasError('pattern')">
+                               Ce format d'email est invalide!
+                          </div>
+                        </div>
+
+
+
+                        <div class="row margin nomargin">
+                          <div class="input-field input-group col s12 l6 nomargin"  id="password"  [ngClass]="{ 'has-error': (form.get('password').touched && form.get('password').invalid) || (submit && form.get('password').invalid) }">
+                              <i class="material-icons prefix">lock_outline</i>
+                              <input [type]="hide ? 'password' : 'text'"  name="password" class="validate" formControlName="password"/>
+                              <label for="password">Mot de passe <span class="require">*</span> </label>
+                          </div>
+                          <div *ngIf="(form.get('password').touched && form.get('password').invalid) || (submit && form.get('password').invalid)   " class="col s12 hide-on-large-only text-danger-for-firstname">
+                            <div *ngIf="form.get('password').hasError('required')">
+                                Ce champs est obligatoire!
+                            </div>
+                            <div *ngIf="form.get('password').hasError('minlength')">
+                                Utilisez 8 caractères ou plus pour votre mot de passe.
+                            </div>
+
+                          </div>
+                          <div class="hide-on-large-only row margin"><!-- Pour sauter un espace--></div>
+                            <div class="input-field input-group col s12 l6 nomargin" id="rpassword" [ngClass]="{ 'has-error': (form.get('rpassword').touched && form.get('rpassword').invalid) || (form.get('rpassword').touched && form?.errors?.mismatch) || (submit && form.get('rpassword').invalid) || (submit && form?.errors?.mismatch) }">
+                                  <i class="material-icons prefix">lock_outline</i>
+                                  <input [type]="hide ? 'password' : 'text'" class="validate" formControlName="rpassword" />
+                                  <label for="rpassword">Confirmer le mot de passe <span class="require">*</span></label>
+                                 <i class="material-icons suffix"  style="cursor: pointer;" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</i>
+                            </div>
+                            <div *ngIf="(form.get('rpassword').touched && form.get('rpassword').invalid) || (submit && form.get('rpassword').invalid) || (form.get('rpassword').touched && form?.errors?.mismatch) || (submit && form?.errors?.mismatch) " class="col s12 hide-on-large-only text-danger-for-firstname">
+                              <div *ngIf="form.get('rpassword').hasError('required')">
+                                  Ce champs est obligatoire!
+                              </div>
+                              <div *ngIf="form?.errors?.mismatch && !form.get('rpassword').hasError('required') && form.get('password').touched">
+                                  Les mots de passes ne correspondent pas!
+                              </div>
+
+                            </div>
+                        </div>
+                        <div class="hide-on-med-and-down">
+                          <div *ngIf="(form.get('password').touched && form.get('password').invalid) || (submit && form.get('password').invalid)   " class="col l12 text-danger">
+                            <div *ngIf="form.get('password').hasError('required')">
+                                Ce champs est obligatoire!
+                            </div>
+
+                          </div>
+                          <div *ngIf="(form.get('rpassword').touched && form.get('rpassword').invalid) || (submit && form.get('rpassword').invalid) || (form.get('rpassword').touched && form?.errors?.mismatch) || (submit && form?.errors?.mismatch) " class="col l6 text-danger-for-name offset-l6">
+                            <div *ngIf="form.get('rpassword').hasError('required')">
+                                Ce champs est obligatoire!
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="row hide-on-med-and-down">
+                          <div *ngIf="(form.get('password').touched && form.get('password').invalid) || (submit && form.get('password').invalid)   " class="text-danger-no col s12 center">
+
+                            <div *ngIf="form.get('password').hasError('minlength')">
+                                Utilisez 8 caractères ou plus pour votre mot de passe.
+                            </div>
+                          </div>
+                          </div>
+                          <div class="row hide-on-med-and-down">
+                          <div *ngIf="(form.get('rpassword').touched && form.get('rpassword').invalid) || (submit && form.get('rpassword').invalid) || (form.get('rpassword').touched && form?.errors?.mismatch) || (submit && form?.errors?.mismatch) " class="text-danger-no col s12 center">
+
+                            <div *ngIf="form?.errors?.mismatch && !form.get('rpassword').hasError('required') && form.get('password').touched">
+                                Les mots de passes ne correspondent pas!
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row margin">
+                          <p class="col s12" [ngClass]="{ 'has-error': submit && form.get('reglement').invalid }">
+                            <input type="checkbox" id="filled-in-box" formControlName="reglement"/>
+                            <label for="filled-in-box">J’accepte les Conditions Générales de Service, le Règlement d’arbitrage ArbitrON et les Conditions tarifaires.<span>*</span></label>
+                          </p>
+                        </div>
+
+
+
+                        <div class="row center">
+                            <div class="input-field col s12 m6 l6">
+                                  <button type="submit" (click)="onSubmit()" class="btn waves-effect waves-light cyan darken-3 col s12 hoverable">S'energistrer</button>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <button  [routerLink]="['/login']" class="btn waves-effect waves-light cyan darken-3 col s12 hoverable">Annuler</button>
+                            </div>
+                        </div>
+                    </form>
+                   </div>
+                   <div class="card-action center-align">
+                        <span class="center-align  grey-text text-darken-1">Merci d'avoir choisi notre plateforme d'arbitrage en ligne.</span>
+                        <p class="center-align grey-text text-darken-1"><b> © 2018 Copyright ArbitrON </b></p>
+                      <!--  <p class="margin medium-small"><a [routerLink]="['/http']">Créer un compte</a></p> -->
+                     </div>
+            </div>
+        </div>
+</section>

@@ -1,0 +1,2 @@
+
+<div *ngIf="message" [ngClass]="{ 'row margin center-align' : message, 'col s12 green-text': message.type === 'success', 'col s12 red-text': message.type === 'error' }"><p class="flow-text"><i class=" material-icons">warning</i> {{message.text}}</p></div>
